@@ -1,0 +1,45 @@
+.products-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.products-toolbar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 11px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.products-toolbar input:focus {
+  border-color: #635bdb;
+}
+
+.products-toolbar span {
+  color: #888;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.empty-message {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  color: #888;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .products-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .products-toolbar input {
+    max-width: none;
+  }
+}

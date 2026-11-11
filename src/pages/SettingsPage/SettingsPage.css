@@ -1,0 +1,55 @@
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 800px;
+}
+
+.settings-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #20243b;
+}
+
+.settings-section p {
+  color: #888;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.settings-section label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.settings-section input,
+.settings-section select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  background: white;
+}
+
+.settings-section input:focus,
+.settings-section select:focus {
+  border-color: #635bdb;
+}
+
+.settings-success {
+  color: #15803d;
+  font-size: 14px;
+  margin: 0;
+}

@@ -1,0 +1,55 @@
+body[data-theme="dark"] {
+  background-color: #151827;
+  color: #f1f1f5;
+}
+
+body[data-theme="dark"] .main-content {
+  background-color: #151827;
+  color: #f1f1f5;
+}
+
+body[data-theme="dark"] .dashboard-navbar {
+  background-color: #20243b;
+  border-color: #353951;
+  color: white;
+}
+
+body[data-theme="dark"] .page-heading h2,
+body[data-theme="dark"] .stat-card h3,
+body[data-theme="dark"] .dashboard-section h3,
+body[data-theme="dark"] .settings-section h3,
+body[data-theme="dark"] .product-name {
+  color: #f1f1f5;
+}
+
+body[data-theme="dark"] .stat-card,
+body[data-theme="dark"] .dashboard-section,
+body[data-theme="dark"] .settings-section,
+body[data-theme="dark"] .card-container,
+body[data-theme="dark"] .product-form {
+  background-color: #20243b;
+  color: #f1f1f5;
+}
+
+body[data-theme="dark"] .settings-section input,
+body[data-theme="dark"] .settings-section select,
+body[data-theme="dark"] .products-toolbar input {
+  background-color: #292e46;
+  border-color: #444963;
+  color: white;
+}
+
+body[data-theme="dark"] .search-results,
+body[data-theme="dark"] .search-result-item {
+  background-color: #20243b;
+  color: white;
+}
+
+body[data-theme="dark"] .search-result-item:hover {
+  background-color: #353951;
+}
+
+body[data-theme="dark"] .dashboard-table td {
+  color: #f1f1f5;
+  border-color: #353951;
+}
