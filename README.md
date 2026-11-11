@@ -1,70 +1,226 @@
-# Getting Started with Create React App
+# Product Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack product management dashboard built with React, Kotlin, Spring Boot, and PostgreSQL.
 
-## Available Scripts
+The application provides product management, inventory availability tracking, search functionality, dashboard statistics, and price analytics.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### Dashboard
+- Overview of product statistics.
+- Total products and availability information.
+- Product summary table.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Product Management
+- Create products.
+- Edit existing products.
+- Delete products.
+- Search products.
+- Track product availability.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Analytics
+- Product price visualization.
+- Price highlights and statistics.
 
-### `npm test`
+### Settings
+- Dark mode support.
+- Responsive user interface.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+**Frontend**
+- React.js
+- JavaScript
+- CSS
+- HTTP Proxy Middleware
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Backend**
+- Kotlin
+- Spring Boot
+- Spring Data JPA
+- Spring Security
+- Hibernate
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Database**
+- PostgreSQL
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
 
-### `npm run eject`
+The frontend source code is available in this repository. The backend is distributed separately through GitHub Releases.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```text
+Product-Management-Dashboard/
+│
+├── src/
+├── public/
+├── package.json
+├── .gitignore
+├── .env.example
+└── README.md
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Requirements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Install the following before running the application:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Node.js and npm.
+- Java 17 or later.
+- PostgreSQL.
+- A web browser.
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 1. Clone the Repository
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone YOUR_REPOSITORY_URL
+cd Product-Management-Dashboard
+```
 
-### Code Splitting
+### 2. Install Frontend Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm install
+```
 
-### Analyzing the Bundle Size
+### 3. Configure Frontend Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Create a `.env.local` file in the frontend root directory:
 
-### Making a Progressive Web App
+```env
+REACT_APP_API_USERNAME=admin
+REACT_APP_API_PASSWORD=YOUR_API_PASSWORD
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+These credentials must match the backend's Spring Security configuration.
 
-### Advanced Configuration
+**Important:**
+- Do not commit `.env.local` to GitHub.
+- The frontend proxy uses these variables to authenticate API requests.
+- Restart the React development server after changing environment variables.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 4. Start the Frontend
 
-### Deployment
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The frontend will be available at:
 
-### `npm run build` fails to minify
+http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Backend Setup
+
+The backend is distributed as a prebuilt JAR file through GitHub Releases.
+
+### 1. Download the Backend
+
+1. Open the repository's Releases section.
+2. Download the latest release.
+3. Extract the downloaded files into a folder.
+
+The release contains:
+
+```text
+backend-release/
+├── backend.jar
+├── run-backend.bat
+└── database-schema.sql
+```
+
+### 2. Configure PostgreSQL
+
+Create a PostgreSQL database named:
+
+```sql
+CREATE DATABASE "Product";
+```
+
+Import the provided `database-schema.sql` file using pgAdmin:
+
+1. Open the `Product` database.
+2. Open the Query Tool.
+3. Load `database-schema.sql`.
+4. Execute the SQL script.
+
+Alternatively, use:
+
+```bash
+psql -U postgres -d Product -f database-schema.sql
+```
+
+Use your own PostgreSQL username and password.
+
+### 3. Configure the Backend Launcher
+
+Open `run-backend.bat` using a text editor.
+
+Update the database configuration:
+
+```bat
+set "DB_NAME=Product"
+set "DB_USERNAME=postgres"
+set "DB_PASSWORD=YOUR_POSTGRES_PASSWORD"
+```
+
+Update the API authentication password:
+
+```bat
+set "API_PASSWORD=YOUR_API_PASSWORD"
+```
+
+The API username in the example is `admin`. It must match the username configured in Spring Security.
+
+Save the file.
+
+**Security note:** Keep your actual credentials private. Do not upload a batch file containing personal passwords to a public release.
+
+### 4. Start the Backend
+
+Double-click:
+
+```text
+run-backend.bat
+```
+
+The backend will start on:
+
+http://localhost:8080
+
+Keep the terminal window open while using the application.
+
+## How Frontend and Backend Communicate
+
+During local development, the React development server uses `http-proxy-middleware` to forward requests to the Spring Boot API.
+
+```text
+React Frontend
+localhost:3000
+       |
+       |  /product
+       v
+React Development Proxy
+       |
+       |  HTTP Basic Authentication
+       v
+Spring Boot API
+localhost:8080
+       |
+       v
+PostgreSQL Database
+```
+
+The proxy forwards requests to the backend and adds the configured authentication credentials.
+
+## Important Notes
+
+- PostgreSQL must be installed and running locally.
+- The backend JAR does not contain the PostgreSQL database.
+- Java 17 or later must be available through the system PATH.
+- The database schema is provided separately in the GitHub Release.
+- The frontend proxy configuration is intended for local development.
+- A production deployment requires appropriate API routing and authentication configuration.
+- Never publish real database or API credentials.
+
+## Author
+
